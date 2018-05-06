@@ -1,57 +1,66 @@
 *, body {
     user-select: none;
-    pointer-events: none;
     margin: 0;
     padding: 0;
-  }
+}
 
-  video { 
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        min-width: 100%;
-        min-height: 100%;
-        width: auto;
-        height: auto;
-        z-index: -100;
-        transform: translateX(-50%) translateY(-50%);
-        background-size: cover;
-        transition: 1s opacity;
-  }
-  .section {
-
+video { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
     width: auto;
-  }
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+    background-size: cover;
+    transition: 1s opacity;
+}
+.section {
+    position: absolute;
+}
 
-  .section.left {
-    position: absolute;
-    top:20%;
-    left:20%;
-    }
-  .section.right {
-    position: absolute;
-    top:20%;
-    left:70%;
-  }
-  .section h1{ 
-    text-align: center;
+.section.left {
+    top: 10%;
+    left: 20%;
+}
+
+.section.right {
+    top: 10%;
+    right: 20%;
+}
+
+.section.center {
+    top: 10%;
+    right: 37%;
+}
+
+.section h1{ 
     font-family: "Open Sans", sans-serif;
+    font-size: 2em;
     color: white;
-    font-size: 3em;
-  }
 
-  .section .avatar {
     text-align: center;
-    margin: 20px;   
-    border-radius: 200px;
-    box-shadow: 3px 3px 4px rgba(0,0,0,0.3);
-    z-index: 9;
-  }
+}
 
-  @media screen and (max-width: 500px) { 
+.section img {
+    display:block;
+    margin:auto;
+    border-radius: 50%;
+    box-shadow: 3px 3px 4px rgba(0,0,0,0.3);
+
+    transition: 0.8s ease-in-out;
+}
+.section:hover img {
+    transition: 0.8s ease-in-out;
+    transform: rotate(360deg);
+}
+
+@media screen and (max-width: 500px) { 
     div{width:70%;} 
-  }
-  @media screen and (max-device-width: 800px) {
-    html { background: url(https://thenewcode.com/assets/images/polina.jpg) #000 no-repeat center center fixed; }
+}
+
+@media screen and (max-device-width: 800px) {
     #bgvid { display: none; }
-  }
+}
