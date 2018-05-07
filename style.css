@@ -50,7 +50,7 @@ video {
     border-radius: 50%;
     box-shadow: 3px 3px 4px rgba(0,0,0,0.3);
 
-    transition: 0.8s ease-in-out;
+    transition: 0.3s ease-in-out;
 }
 .section:hover img {
     transition: 0.8s ease-in-out;
