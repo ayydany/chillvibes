@@ -100,12 +100,6 @@ video {
     100% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); } 
 }
 
-
-
-.animation-target {
-
-}
-
 /* Generated with Bounce.js. Edit at https://goo.gl/HCfmOK */
 
 @keyframes animation { 
