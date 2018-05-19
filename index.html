@@ -6,32 +6,26 @@
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet">
   	<link rel="icon" type="image/png" sizes="32x32" href="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/31/31cdc233d74d319f41ca2e798d5f70a381566859_full.jpg">
 
-  	<title>danyboss irl</title>
+	<title>danyboss irl</title>
+	
+	<link href="style.css" rel="stylesheet">
 
-  	<link href="style.css" rel="stylesheet">
+	<link href="lib/YTPlayer.css" media="all" rel="stylesheet" type="text/css">
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+	<script src="lib/jquery.mb.YTPlayer.min.js"></script>
 </head>
 
 <body>
-	<div class="video" style="position: fixed; z-index: -99; width: 100%; height: 100%">
-		<iframe frameborder="0" height="100%" width="100%" allow="autoplay"
-			src="https://youtube.com/embed/eGslweDOihs?autoplay=1&controls=0&showinfo=0&autohide=1">
-		</iframe>
-	</div>
-	<!-- Background Video -->
- <!-- 	<video playsinline muted autoplay loop>
-    	<source src="file/video.mp4" type="video/mp4">
-	</video> -->
 
+	<div id="bgndVideo" class="player" data-property="{videoURL:'https://youtu.be/eGslweDOihs', containment:'body', stopMovieOnBlur: false, loop:true, showControls:false, autoPlay:true, mute:false, startAt:0, opacity:1}">My video</div>
 	
-	<!-- Background Music -->
-	<!--<audio autoplay loop>
-		<source src="file/bart.mp3" type="audio/mpeg">
-	</audio>-->
-
 	<!-- Avatar Section -->
     <div class="section">
 		<img draggable="false" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/31/31cdc233d74d319f41ca2e798d5f70a381566859_full.jpg"/>
 		<h1>ｄａｎｙｂｏｓｓ　コッ猿</h1>
 	</div>
+
+	<script src="script.js"></script>
 	
 </body>

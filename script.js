@@ -1,1 +1,5 @@
-document.addEventListener('contextmenu', event => event.preventDefault());
+
+
+jQuery(function(){
+    jQuery("#bgndVideo").YTPlayer();
+  });
