@@ -6,13 +6,15 @@ const arr = [
     "oh yeah I can talk",
     "suprising huh",
     "is this even talking though?",
-    "anyway Dany",
-    "i bet you're wondering how much I can talk right?",
-    "answer is, well a lot",
+    "anyway you can call me Dany",
+    "I bet you're wondering how much I can talk right?",
+    "this can't go on forever right",
+    "well I got bad news for you uwu",
+    "answer is yeah this won't stop",
+    "i can do some cool stuff in here too",
     "maybe i'll even scare you c:<",
     "wondering how i can do that",
     "in here i can do anything",
-    "im a faggot",
     "how did you find me?", 
     "steam I bet", 
     "danyboss's profile?", 
@@ -33,8 +35,8 @@ const arr = [
     ":^)"];
 
 let counter = 0;
-let animationEnter = ["bounceIn","bounceInDown","bounceInLeft","fadeIn","flipInX"],
-    animationExit = ["bounceOut","bounceOutLeft","fadeOut","flipOutX"],
+let animationEnter = ["bounceIn","bounceInDown","bounceInLeft","flipInX"],
+    animationExit = ["bounceOut","bounceOutLeft","flipOutX"],
     prevAnimEnter = "bounceIn",
     prevAnimExit = "bounceOut";
 
@@ -47,9 +49,9 @@ $( document ).ready(()=>{
 
 
 function avatarAnim() {
-    audio = new Audio('file/bart.mp3');
-    audio.play();
-    
+    if(!audio.paused){
+        audio.play();
+    }
     $(".section").off("mouseenter");
 
     let newEntry = animationEnter[Math.floor(Math.random() * animationEnter.length)];
