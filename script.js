@@ -48,25 +48,25 @@ $( document ).ready(()=>{
     audio.loop = true;
     audio.autoplay = true;
 
-    $(".section").on("mouseenter", avatarAnim);
+    $(".avatar").on("mouseenter", avatarAnim);
 })
 
 function avatarAnim() {
     if(!audio.paused){
         audio.play();
     }
-    $(".section").off("mouseenter");
+    $(this).off("mouseenter");
 
     let newEntry = animationEnter[Math.floor(Math.random() * animationEnter.length)];
     let newExit = animationExit[Math.floor(Math.random() * animationExit.length)];
 
-    $(this).removeClass(prevAnimEnter);
-    $(this).addClass('animated ' + newExit);
+    $(".section").removeClass(prevAnimEnter);
+    $(".section").addClass('animated ' + newExit);
     prevAnimExit = newExit;
 
     setTimeout(()=>{
         counter++;
-        $("h1", this).text(arr[counter]);
+        $("h1", ".section").text(arr[counter]);
         
         specialTriggers();
 
@@ -74,11 +74,11 @@ function avatarAnim() {
 
     setTimeout(()=>{
 
-        $(this).removeClass(prevAnimExit);
-        $(this).addClass('animated ' + newEntry);
+        $(".section").removeClass(prevAnimExit);
+        $(".section").addClass('animated ' + newEntry);
         prevAnimEnter = newEntry;
 
-        $(".section").on("mouseenter", avatarAnim);
+        $(this).on("mouseenter", avatarAnim);
     }, 2000)
 }
 
