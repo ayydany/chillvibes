@@ -10,5 +10,4 @@ $(document).ready(() => {
     setTimeout(()=>{
         play(); 
     }, 2000);
-
 })
