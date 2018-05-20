@@ -34,19 +34,9 @@ video {
 
 }
 
-.section {
+.section{
     display:inline-block;
-    padding-top: 2%;
-}
-
-.section h1{ 
-    padding-top: 2%;
-    font-family: "Open Sans", sans-serif;
-    font-size: 2em;
-    color: white;
-    text-shadow: 2px 2px 0px #4AB18E;
-
-    text-align: center;
+    padding: 2%;
 }
 
 .section img {
@@ -54,7 +44,36 @@ video {
     margin:auto;
     border-radius: 50%;
     box-shadow: 3px 3px 4px rgba(0,0,0,0.3);
-  
+}
+
+.dany h1{ 
+    padding-top: 2%;
+    font-family: "Shadows Into Light", sans-serif;
+    font-size: 2em;
+    color: white;
+    text-shadow: 2px 2px 0px rgb(201, 86, 230);
+
+    text-align: center;
+}
+
+.dofu h1{ 
+    padding-top: 2%;
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 2em;
+    color: white;
+    text-shadow: 2px 2px 0px rgb(74, 103, 177);
+
+    text-align: center;
+}
+
+.duarte h1{ 
+    padding-top: 2%;
+    font-family: 'Indie Flower', cursive;
+    font-size: 2em;
+    color: white;
+    text-shadow: 2px 2px 0px rgb(38, 146, 141);
+
+    text-align: center;
 }
 
 @media screen and (max-width: 500px) {
