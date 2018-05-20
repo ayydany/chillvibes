@@ -1,6 +1,7 @@
 var playing = true;
 
 function play() {
+    jQuery('#bgndVideo').YTPlay();
     jQuery('#bgndVideo').YTPUnmute();
 }
 
@@ -12,7 +13,7 @@ $(document).ready(() => {
     while(true){
         setTimeout(()=> {
             console.log("trying to unmute");
-            
+
             play(); 
         }, 2000);
     }
