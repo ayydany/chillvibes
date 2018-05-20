@@ -1,6 +1,6 @@
 function play() {
-    jQuery('#bgndVideo').YTPPlay();
     jQuery('#bgndVideo').YTPUnmute();
+    jQuery('#bgndVideo').YTPPlay();
 }
 
 $(document).ready(() => {
@@ -10,6 +10,6 @@ $(document).ready(() => {
 
     setTimeout(()=>{
         play(); 
-    }, 2000);
+    }, 2500);
 
 })
