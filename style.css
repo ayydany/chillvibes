@@ -40,6 +40,7 @@ video {
 }
 
 .section h1{ 
+    padding-top: 2%;
     font-family: "Open Sans", sans-serif;
     font-size: 2em;
     color: white;
@@ -56,10 +57,19 @@ video {
   
 }
 
-@media screen and (max-width: 500px) { 
-    div{width:70%;} 
+@media screen and (max-width: 500px) {
+    .title { 
+        padding-top: 10%;
+        font-size: 1.5em;
+    }
+    .section {
+        padding-top: 5%;
+    }
+    .section h1{ 
+        padding-top: 5%;
+        font-size: 1.5em;
+    }
 }
 
 @media screen and (max-device-width: 800px) {
-    #bgvid { display: none; }
 }

@@ -13,8 +13,12 @@ const arr = [
     "answer is yeah this won't stop",
     "i can do some cool stuff in here too",
     "maybe i'll even scare you c:<",
-    "wondering how i can do that",
+    "I won't :3",
+    "or will I",
+    "wondering how i can scare you?",
     "in here i can do anything",
+    "BOOOOO",
+    "ahah gotchu x3",
     "how did you find me?", 
     "steam I bet", 
     "danyboss's profile?", 
@@ -46,7 +50,6 @@ $( document ).ready(()=>{
 
     $(".section").on("mouseenter", avatarAnim);
 })
-
 
 function avatarAnim() {
     if(!audio.paused){
