@@ -1,4 +1,4 @@
-let audio = new Audio('file/barta.mp3');
+let audio = new Audio('file/bart.mp3');
 let twoEnabled = false;
 
 const interaction = [
