@@ -1,12 +1,15 @@
+function play() {
+    jQuery('#bgndVideo').YTPPlay();
+    jQuery('#bgndVideo').YTPUnmute();
+}
 
-
-$( document ).ready(() => {
+$(document).ready(() => {
     jQuery(function(){
         jQuery("#bgndVideo").YTPlayer();
     });
-      
-    function play() {
-        jQuery('#bgndVideo').YTPPlay();
-        jQuery('#bgndVideo').YTPUnmute();
-    }
+
+    setTimeout(()=>{
+        play(); 
+    }, 2000);
+
 })
