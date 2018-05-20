@@ -48,14 +48,14 @@ $( document ).ready(()=>{
     audio.loop = true;
     audio.autoplay = true;
 
-    $(".avatar").on("mouseenter", avatarAnim);
+    $(".avatar").on("click", avatarAnim);
 })
 
 function avatarAnim() {
     if(!audio.paused){
         audio.play();
     }
-    $(this).off("mouseenter");
+    $(this).off("click");
 
     let newEntry = animationEnter[Math.floor(Math.random() * animationEnter.length)];
     let newExit = animationExit[Math.floor(Math.random() * animationExit.length)];
@@ -78,7 +78,7 @@ function avatarAnim() {
         $(".section").addClass('animated ' + newEntry);
         prevAnimEnter = newEntry;
 
-        $(this).on("mouseenter", avatarAnim);
+        $(this).on("click", avatarAnim);
     }, 2000)
 }
 
