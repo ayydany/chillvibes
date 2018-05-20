@@ -52,10 +52,11 @@ $( document ).ready(()=>{
 })
 
 function avatarAnim() {
-    if(!audio.paused){
+    $(this).off("click");
+
+    if(audio.paused){
         audio.play();
     }
-    $(this).off("click");
 
     let newEntry = animationEnter[Math.floor(Math.random() * animationEnter.length)];
     let newExit = animationExit[Math.floor(Math.random() * animationExit.length)];
