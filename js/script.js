@@ -2,10 +2,8 @@
 let audio = new Audio('file/bart.mp3');
 
 // Animation Variables.
-let animationEnter = ["bounceIn","bounceInDown","bounceInLeft","rollIn","flipInX"],
-    animationExit = ["bounceOut","bounceOutLeft","rollOut","flipOutX"],
-    prevAnimEnter = "bounceIn",
-    prevAnimExit = "bounceOut";
+let prevAnimEnter = "bounce",
+    prevAnimExit = "bounce";
 
 // Game Variables.
 let usersActive = {user1:true, user2:false, user3:false, user4:false};
@@ -25,41 +23,38 @@ function avatarAnim() {
         audio.play();
     }
 
-    let newEntry = animationEnter[Math.floor(Math.random() * animationEnter.length)];
-    let newExit = animationExit[Math.floor(Math.random() * animationExit.length)];
-
     // grabs the new interaction
     let interaction = Interaction.getInteraction();
 
+    $("#user"+ interaction.user).animateCss(interaction.animation);
+    prevAnimExit =  interaction.animation;
 
-    $("#user"+ interaction.user).removeClass(prevAnimEnter);
-    $("#user"+ interaction.user).addClass('animated ' + newExit);
-    prevAnimExit = newExit;
-
-    // Update next user speach
-    setTimeout(() => {
-        $("#user"+ interaction.user +" .avatar").attr("src", interaction.img);
-        $("h1", "#user" + interaction.user).text(interaction.text);
-    }, 700)
-
-    // Animate it.
+    // Update next user speech
     setTimeout(() => {
         
+        if(!$("#user"+interaction.user).is(":visible")) {
+            console.log("hidden, displaying");
+            $("#user"+interaction.user ).show();
+        }
+
+        $("#user"+ interaction.user +" .avatar").attr("src", interaction.img);
+        $("h1", "#user" + interaction.user).text(interaction.text);
+    }, 200)
+
+    // Animate exit.
+    setTimeout(() => {
         if(interaction.special){
             interaction.special.call(null, interaction.name2);
         }
-
-        $("#user"+ interaction.user).removeClass(prevAnimExit);
-        $("#user"+ interaction.user).addClass('animated ' + newEntry);
-        prevAnimEnter = newEntry;
 
         $(this).on("click", avatarAnim);
     }, 1500)
 }
 
+
 function enableTwo(name){
     $("#user2").removeClass();
-    $("#user2").addClass("section " + name + " animated bounceIn");
+    $("#user2").addClass("section " + name + " animated bounce");
     $("#user2").show();
     usersActive.user2 = true;
 }
@@ -68,3 +63,30 @@ function disableTwo(){
     $("#user2").hide();
     usersActive.user2 = false;
 }
+
+$.fn.extend({
+    animateCss: function(animationName, callback) {
+      var animationEnd = (function(el) {
+        var animations = {
+          animation: 'animationend',
+          OAnimation: 'oAnimationEnd',
+          MozAnimation: 'mozAnimationEnd',
+          WebkitAnimation: 'webkitAnimationEnd',
+        };
+  
+        for (var t in animations) {
+          if (el.style[t] !== undefined) {
+            return animations[t];
+          }
+        }
+      })(document.createElement('div'));
+  
+      this.addClass('animated ' + animationName).one(animationEnd, function() {
+        $(this).removeClass('animated ' + animationName);
+  
+        if (typeof callback === 'function') callback();
+      });
+  
+      return this;
+    },
+  });
