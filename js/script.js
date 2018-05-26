@@ -1,22 +1,23 @@
 // Audio Object.
 let audio = new Audio('file/bart.mp3');
 
-// Animation Variables.
-let prevAnimEnter = "bounce",
-    prevAnimExit = "bounce";
-
 // Game Variables.
 let usersActive = {user1:true, user2:false, user3:false, user4:false};
 
 $(document).ready(() => {
-    audio.volume = 0.1;
-    audio.loop = true;
-    audio.autoplay = true;
+    // audio.volume = 0.1;
+    // audio.loop = true;
+    // audio.autoplay = true;
 
-    $(".avatar").on("click", avatarAnim);
+    $(".avatar").on("click", playGame);
 })
 
-function avatarAnim() {
+/** 
+ * Main Game Function
+ * Loops through clicks currently
+ */
+function playGame() {
+
     $(this).off("click");
 
     if(audio.paused){
@@ -25,45 +26,43 @@ function avatarAnim() {
 
     // grabs the new interaction
     let interaction = Interaction.getInteraction();
-
     $("#user"+ interaction.user).animateCss(interaction.animation);
-    prevAnimExit =  interaction.animation;
+
+    // Add cascading effect
+    // for(let i = 1; i <= 4; i++) {
+    //     if(i == interaction.user) {
+    //         $("#user"+ i).css('margin-top', 0);
+    //     } else {
+    //         console.log("user" + i + " " + ($("#user"+ i).css('margin-top')+ 50)) ;
+    //         $("#user"+ i).css('margin-top', 200);
+    //     }
+    // }
+    
+    // Timer to set the next trigger
+    setTimeout(() => {
+        playGame();
+    }, 1250)
 
     // Update next user speech
     setTimeout(() => {
-        
-        if(!$("#user"+interaction.user).is(":visible")) {
-            console.log("hidden, displaying");
-            $("#user"+interaction.user ).show();
-        }
-
-        $("#user"+ interaction.user +" .avatar").attr("src", interaction.img);
+        $("#user"+ interaction.user +" .avatar").attr("src", interaction.img); 
         $("h1", "#user" + interaction.user).text(interaction.text);
-    }, 200)
 
-    // Animate exit.
-    setTimeout(() => {
-        if(interaction.special){
-            interaction.special.call(null, interaction.name2);
+        // If the interacction is popping someone new
+        if(!$("#user"+interaction.user).is(":visible")) {
+            $("#user"+interaction.user).addClass(interaction.name);
+            $("#user"+interaction.user).show();
         }
 
-        $(this).on("click", avatarAnim);
-    }, 1500)
+        //TODO: If the interaction is popping out someone
+    }, 200)
 }
 
-
-function enableTwo(name){
-    $("#user2").removeClass();
-    $("#user2").addClass("section " + name + " animated bounce");
-    $("#user2").show();
-    usersActive.user2 = true;
-}
-
-function disableTwo(){
-    $("#user2").hide();
-    usersActive.user2 = false;
-}
-
+/**
+ * Animation Function
+ * When the animation ends this function cleans up the leftovers css
+ * And also accepts a call to do something when the animation ends.
+ */
 $.fn.extend({
     animateCss: function(animationName, callback) {
       var animationEnd = (function(el) {

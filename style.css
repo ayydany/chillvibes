@@ -35,13 +35,14 @@ video {
 }
 
 .section{
-    display:inline-block;
+    display: inline-block;
     padding: 2%;
 }
 
 .section img {
     display:block;
     margin:auto;
+    height: 180px;
     border-radius: 50%;
     box-shadow: 3px 3px 4px rgba(0,0,0,0.3);
 }
@@ -51,7 +52,7 @@ video {
     font-family: "Shadows Into Light", sans-serif;
     font-size: 2em;
     color: white;
-    text-shadow: 2px 2px 0px rgb(201, 86, 230);
+    text-shadow: 2px 2px 0px #e67e22;
 
     text-align: center;
 }
@@ -61,7 +62,7 @@ video {
     font-family: 'Gloria Hallelujah', cursive;
     font-size: 2em;
     color: white;
-    text-shadow: 2px 2px 0px rgb(74, 103, 177);
+    text-shadow: 2px 2px 0px #1abc9c;
 
     text-align: center;
 }
@@ -71,10 +72,23 @@ video {
     font-family: 'Indie Flower', cursive;
     font-size: 2em;
     color: white;
-    text-shadow: 2px 2px 0px rgb(38, 146, 141);
+    text-shadow: 2px 2px 0px #9b59b6;
 
     text-align: center;
 }
+
+.pedro h1{ 
+    padding-top: 2%;
+    font-family: 'Alex Brush', cursive;
+    font-size: 2.5em;
+    color: white;
+    text-shadow: 2px 2px 0px #f1c40f;
+
+    text-align: center;
+}
+
+
+
 
 @media screen and (max-width: 500px) {
     .title { 
