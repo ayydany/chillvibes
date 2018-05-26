@@ -10,7 +10,7 @@ var Interaction = (function(){
         {user: 4, name:"pedro", img:"res/avatars/pedro.jpg", text:"wow", animation:"bounceInRight", special:null},
         {user: 1, name:"dany", img:"res/avatars/dany.jpg", text:"BOP", animation:"bounce", special:null},
         {user: 2, name:"dofu", img:"res/avatars/dofu.jpg", text:"AAAAAA", animation:"bounce", special:null},
-        {user: 3, name:"duarte", img:"res/avatars/duarte.jpg", text:"GAY", animation:"swing", special:null},
+        {user: 3, name:"duarte", img:"res/avatars/duarte.jpg", text:"GAY", animation:"bounce", special:null},
         {user: 4, name:"pedro", img:"res/avatars/pedro.jpg", text:"...", animation:"bounce", special:null},
         {user: 3, name:"duarte", img:"res/avatars/duarte.jpg", text:"wew a gurl", animation:"bounce", special:null},
         {user: 4, name:"pedro", img:"res/avatars/pedro.jpg", text:"wew a furry", animation:"bounce", special:null},

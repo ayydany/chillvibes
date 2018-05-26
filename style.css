@@ -1,7 +1,6 @@
 *, body {
     user-select: none;
     margin: 0;
-    padding: 0;
     text-align: center;
 }
 
@@ -22,32 +21,39 @@ video {
 }
 
 .title {
+
+    padding: 2%;
+
     font-family: "Open Sans", sans-serif;
     font-size: 2em;
     font-weight: bold;
     text-shadow: 4px 4px 0px #4AB18E;
     color: white;
- 
-
     text-align: center;
-    padding-top: 2%;
-
 }
 
 .section{
-    display: inline-block;
+    width: 80%;
+    height: 600px;
+    margin:0 auto;
     padding: 2%;
+
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .section img {
-    display:block;
     margin:auto;
     height: 180px;
     border-radius: 50%;
     box-shadow: 3px 3px 4px rgba(0,0,0,0.3);
 }
 
+.dany {
+}
+
 .dany h1{ 
+
     padding-top: 2%;
     font-family: "Shadows Into Light", sans-serif;
     font-size: 2em;
@@ -57,7 +63,11 @@ video {
     text-align: center;
 }
 
+.dofu {
+}
+
 .dofu h1{ 
+    align-self: flex-end;
     padding-top: 2%;
     font-family: 'Gloria Hallelujah', cursive;
     font-size: 2em;

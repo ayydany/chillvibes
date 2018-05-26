@@ -29,14 +29,17 @@ function playGame() {
     $("#user"+ interaction.user).animateCss(interaction.animation);
 
     // Add cascading effect
-    // for(let i = 1; i <= 4; i++) {
-    //     if(i == interaction.user) {
-    //         $("#user"+ i).css('margin-top', 0);
-    //     } else {
-    //         console.log("user" + i + " " + ($("#user"+ i).css('margin-top')+ 50)) ;
-    //         $("#user"+ i).css('margin-top', 200);
-    //     }
-    // }
+    for(let i = 1; i <= 4; i++) {
+        if(i == interaction.user) {
+            $("#user"+ i).animate({
+                marginTop: "0",
+            }, 200)
+        } else {
+            $("#user"+ i).animate({
+                marginTop: "+=25",
+            }, 200)
+        }
+    }
     
     // Timer to set the next trigger
     setTimeout(() => {
@@ -50,8 +53,8 @@ function playGame() {
 
         // If the interacction is popping someone new
         if(!$("#user"+interaction.user).is(":visible")) {
-            $("#user"+interaction.user).addClass(interaction.name);
-            $("#user"+interaction.user).show();
+                $("#user"+interaction.user).addClass(interaction.name);
+                $("#user"+interaction.user).show(200);
         }
 
         //TODO: If the interaction is popping out someone
