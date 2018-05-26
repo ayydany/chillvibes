@@ -50,6 +50,8 @@ video {
 }
 
 .dany {
+    flex-grow:0;
+    width: 25%;
 }
 
 .dany h1{ 
@@ -61,13 +63,15 @@ video {
     text-shadow: 2px 2px 0px #e67e22;
 
     text-align: center;
+    white-space: nowrap;
 }
 
 .dofu {
+    flex-grow:0;
+    width: 25%;
 }
 
 .dofu h1{ 
-    align-self: flex-end;
     padding-top: 2%;
     font-family: 'Gloria Hallelujah', cursive;
     font-size: 2em;
@@ -75,8 +79,13 @@ video {
     text-shadow: 2px 2px 0px #1abc9c;
 
     text-align: center;
+    white-space: nowrap;
 }
 
+.duarte {
+    flex-grow:0;
+    width: 25%;
+}
 .duarte h1{ 
     padding-top: 2%;
     font-family: 'Indie Flower', cursive;
@@ -85,8 +94,13 @@ video {
     text-shadow: 2px 2px 0px #9b59b6;
 
     text-align: center;
+    white-space: nowrap;
 }
 
+.pedro {
+    flex-grow:0;
+    width: 25%;
+}
 .pedro h1{ 
     padding-top: 2%;
     font-family: 'Alex Brush', cursive;
@@ -95,6 +109,7 @@ video {
     text-shadow: 2px 2px 0px #f1c40f;
 
     text-align: center;
+    white-space: nowrap;
 }
 
 

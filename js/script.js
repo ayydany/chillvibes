@@ -18,8 +18,6 @@ $(document).ready(() => {
  */
 function playGame() {
 
-    $(this).off("click");
-
     if(audio.paused){
         audio.play();
     }
@@ -40,16 +38,13 @@ function playGame() {
             }, 200)
         }
     }
-    
-    // Timer to set the next trigger
-    setTimeout(() => {
-        playGame();
-    }, 1250)
 
     // Update next user speech
     setTimeout(() => {
         $("#user"+ interaction.user +" .avatar").attr("src", interaction.img); 
-        $("h1", "#user" + interaction.user).text(interaction.text);
+        $("h1", "#user" + interaction.user).fadeOut(200, function() {
+            $(this).text(interaction.text).fadeIn(200);
+        })
 
         // If the interacction is popping someone new
         if(!$("#user"+interaction.user).is(":visible")) {
@@ -58,7 +53,12 @@ function playGame() {
         }
 
         //TODO: If the interaction is popping out someone
-    }, 200)
+    }, 300)
+
+    // Timer to set the next trigger
+    setTimeout(() => {
+        playGame();
+    }, 1250)
 }
 
 /**
