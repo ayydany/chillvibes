@@ -34,7 +34,7 @@ function playGame() {
             }, 200)
         } else {
             $("#user"+ i).animate({
-                marginTop: "+=25",
+                marginTop: "+=50",
             }, 200)
         }
     }
@@ -58,7 +58,7 @@ function playGame() {
     // Timer to set the next trigger
     setTimeout(() => {
         playGame();
-    }, 1250)
+    }, 2000)
 }
 
 /**
