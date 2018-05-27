@@ -18,47 +18,52 @@ $(document).ready(() => {
  */
 function playGame() {
 
+    $(".avatar").off("click");
+
     if(audio.paused){
         audio.play();
     }
 
-    // grabs the new interaction
+    // grab the new interaction
     let interaction = Interaction.getInteraction();
-    $("#user"+ interaction.user).animateCss(interaction.animation);
+
+    // If the interacction is popping someone new
+    if(!$("#user"+interaction.user).is(":visible")) {
+        $("#user"+ interaction.user +" .avatar").attr("src", interaction.img); 
+        $("#user"+interaction.user).addClass(interaction.name);
+        $("#user"+interaction.user).show(300);
+    }
 
     // Add cascading effect
     for(let i = 1; i <= 4; i++) {
         if(i == interaction.user) {
             $("#user"+ i).animate({
                 marginTop: "0",
-            }, 200)
+            }, 300)
         } else {
             $("#user"+ i).animate({
                 marginTop: "+=50",
-            }, 200)
+            }, 300)
         }
     }
 
-    // Update next user speech
+    $("#user"+ interaction.user).animateCss(interaction.animation);
+
+    // Update text
     setTimeout(() => {
-        $("#user"+ interaction.user +" .avatar").attr("src", interaction.img); 
         $("h1", "#user" + interaction.user).fadeOut(200, function() {
             $(this).text(interaction.text).fadeIn(200);
         })
-
-        // If the interacction is popping someone new
-        if(!$("#user"+interaction.user).is(":visible")) {
-                $("#user"+interaction.user).addClass(interaction.name);
-                $("#user"+interaction.user).show(200);
-        }
+    }, 200);
 
         //TODO: If the interaction is popping out someone
-    }, 300)
 
     // Timer to set the next trigger
     setTimeout(() => {
         playGame();
-    }, 2000)
+    }, interaction.timer)
+
+    //$(".avatar").on("click", playGame);
 }
 
 /**

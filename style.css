@@ -1,4 +1,6 @@
 *, body {
+    text-rendering: optimizeLegibility !important;
+
     user-select: none;
     margin: 0;
     text-align: center;
@@ -55,7 +57,6 @@ video {
 }
 
 .dany h1{ 
-
     padding-top: 2%;
     font-family: "Shadows Into Light", sans-serif;
     font-size: 2em;
@@ -103,17 +104,14 @@ video {
 }
 .pedro h1{ 
     padding-top: 2%;
-    font-family: 'Alex Brush', cursive;
+    font-family: 'Gamja Flower', cursive;
     font-size: 2.5em;
     color: white;
-    text-shadow: 2px 2px 0px #f1c40f;
+    text-shadow: 2px 2px 0px #c7bb5f;
 
     text-align: center;
     white-space: nowrap;
 }
-
-
-
 
 @media screen and (max-width: 500px) {
     .title { 
