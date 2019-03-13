@@ -9,49 +9,48 @@ $(document).ready(() => {
     // audio.loop = true;
     // audio.autoplay = true;
 
-    $(".avatar").on("click", playGame);
+    $(".avatar").on("click", playNextInteraction);
 })
 
 /** 
  * Main Game Function
- * Loops through clicks currently
  */
-function playGame() {
+function playNextInteraction() {
 
     $(".avatar").off("click");
 
-    if(audio.paused){
+    if(audio.paused) {
         audio.play();
     }
 
     // grab the new interaction
     let interaction = Interaction.getInteraction();
 
-    // If the interacction is popping someone new
-    if(!$("#user"+interaction.user).is(":visible")) {
-        $("#user"+ interaction.user +" .avatar").attr("src", interaction.img); 
-        $("#user"+interaction.user).addClass(interaction.name);
-        $("#user"+interaction.user).show(300);
+    // If the interaction is popping someone new
+    if(!$(`#user_${interaction.user.id}`).is(":visible")) {
+        $(`#user_${interaction.user.id}.avatar`).attr("src", interaction.user.img); 
+        $(`#user_${interaction.user.id}`).addClass(interaction.user.name);
+        $(`#user_${interaction.user.id}`).show(300);
     }
 
     // Add cascading effect
     for(let i = 1; i <= 4; i++) {
-        if(i == interaction.user) {
-            $("#user"+ i).animate({
+        if(i == interaction.user.id) {
+            $(`#user_${i}`).animate({
                 marginTop: "0",
             }, 300)
         } else {
-            $("#user"+ i).animate({
+            $(`#user_${i}`).animate({
                 marginTop: "+=50",
             }, 300)
         }
     }
 
-    $("#user"+ interaction.user).animateCss(interaction.animation);
+    $(`#user_${interaction.user.id}`).animateCss(interaction.animation);
 
     // Update text
     setTimeout(() => {
-        $("h1", "#user" + interaction.user).fadeOut(200, function() {
+        $("h1", `#user_${interaction.user.id}`).fadeOut(200, function() {
             $(this).text(interaction.text).fadeIn(200);
         })
     }, 200);
@@ -60,7 +59,7 @@ function playGame() {
 
     // Timer to set the next trigger
     setTimeout(() => {
-        playGame();
+        playNextInteraction();
     }, interaction.timer)
 
     //$(".avatar").on("click", playGame);

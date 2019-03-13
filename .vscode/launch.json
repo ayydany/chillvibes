@@ -7,9 +7,8 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Launch Chrome against localhost",
-            "url": "http://localhost:8080/meme",
-            "webRoot": "${workspaceFolder}"
+            "name": "Chrome",
+            "file": "${workspaceFolder}/index.html"
         }
     ]
 }
