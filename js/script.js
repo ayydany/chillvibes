@@ -25,17 +25,18 @@ function playNextInteraction() {
 
     // grab the new interaction
     let interaction = Interaction.getInteraction();
+    let userID = interaction.user.id;
 
     // If the interaction is popping someone new
-    if(!$(`#user_${interaction.user.id}`).is(":visible")) {
-        $(`#user_${interaction.user.id}.avatar`).attr("src", interaction.user.img); 
-        $(`#user_${interaction.user.id}`).addClass(interaction.user.name);
-        $(`#user_${interaction.user.id}`).show(300);
+    if(!$(`#user_${userID}`).is(":visible")) {
+        $(`#user_${userID}.avatar`).attr("src", interaction.user.img); 
+        $(`#user_${userID}`).addClass(interaction.user.name);
+        $(`#user_${userID}`).show(300);
     }
 
     // Add cascading effect
     for(let i = 1; i <= 4; i++) {
-        if(i == interaction.user.id) {
+        if(i == userID) {
             $(`#user_${i}`).animate({
                 marginTop: "0",
             }, 300)
@@ -46,16 +47,16 @@ function playNextInteraction() {
         }
     }
 
-    $(`#user_${interaction.user.id}`).animateCss(interaction.animation);
+    $(`#user_${userID}`).animateCss(interaction.animation);
 
     // Update text
     setTimeout(() => {
-        $("h1", `#user_${interaction.user.id}`).fadeOut(200, function() {
+        $("h1", `#user_${userID}`).fadeOut(200, function() {
             $(this).text(interaction.text).fadeIn(200);
         })
     }, 200);
 
-        //TODO: If the interaction is popping out someone
+    //TODO: If the interaction is popping out someone
 
     // Timer to set the next trigger
     setTimeout(() => {
