@@ -5,10 +5,6 @@ let audio = new Audio('file/bart.mp3');
 let usersActive = {user1:true, user2:false, user3:false, user4:false};
 
 $(document).ready(() => {
-    // audio.volume = 0.1;
-    // audio.loop = true;
-    // audio.autoplay = true;
-
     $(".avatar").on("click", playNextInteraction);
 })
 
@@ -20,23 +16,35 @@ function playNextInteraction() {
     $(".avatar").off("click");
 
     if(audio.paused) {
-        audio.play();
+        //audio.play();
     }
 
     // grab the new interaction
     let interaction = Interaction.getInteraction();
-    let userID = interaction.user.id;
+    let user = interaction.user;
 
     // If the interaction is popping someone new
-    if(!$(`#user_${userID}`).is(":visible")) {
-        $(`#user_${userID}.avatar`).attr("src", interaction.user.img); 
-        $(`#user_${userID}`).addClass(interaction.user.name);
-        $(`#user_${userID}`).show(300);
+    if(!$(`#user_${user.id}`).is(":visible")) {
+        $(`#user_${user.id}.avatar`).attr("src", user.img); 
+        $(`#user_${user.id}`).addClass(user.name);
+        $(`#user_${user.id}`).show(300);
     }
 
-    // Add cascading effect
+    // play animation
+    $(`#user_${user.id}`).animateCss(interaction.animation);
+
+    // update text
+    setTimeout(() => {
+        $("h1", `#user_${user.id}`).fadeOut(200, function() {
+            $(this).text(interaction.text).fadeIn(200);
+        })
+    }, 200);
+
+    //TODO: If the interaction is popping out someone
+
+    // add cascading effect
     for(let i = 1; i <= 4; i++) {
-        if(i == userID) {
+        if(i == user.id) {
             $(`#user_${i}`).animate({
                 marginTop: "0",
             }, 300)
@@ -46,17 +54,6 @@ function playNextInteraction() {
             }, 300)
         }
     }
-
-    $(`#user_${userID}`).animateCss(interaction.animation);
-
-    // Update text
-    setTimeout(() => {
-        $("h1", `#user_${userID}`).fadeOut(200, function() {
-            $(this).text(interaction.text).fadeIn(200);
-        })
-    }, 200);
-
-    //TODO: If the interaction is popping out someone
 
     // Timer to set the next trigger
     setTimeout(() => {

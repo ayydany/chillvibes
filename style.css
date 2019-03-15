@@ -1,4 +1,7 @@
 *, body {
+    overflow-y: hidden;
+    overflow-x: hidden;
+
     text-rendering: optimizeLegibility !important;
 
     user-select: none;
@@ -36,7 +39,7 @@ video {
 
 .section{
     width: 80%;
-    height: 600px;
+    height: 100%;
     margin:0 auto;
     padding: 2%;
 
