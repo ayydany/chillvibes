@@ -21,39 +21,35 @@ function playNextInteraction() {
 
     // grab the new interaction
     let interaction = Interaction.getInteraction();
-    let user = interaction.user;
+    let currentUser = interaction.user;
 
     // If the interaction is popping someone new
-    if(!$(`#user_${user.id}`).is(":visible")) {
-        $(`#user_${user.id}.avatar`).attr("src", user.img); 
-        $(`#user_${user.id}`).addClass(user.name);
-        $(`#user_${user.id}`).show(300);
+    if(!$(currentUser.classid).is(":visible")) {
+        $(`${currentUser.classid}.avatar`).attr("src", currentUser.src); 
+        $(currentUser.classid).addClass(currentUser.name);
+        $(currentUser.classid).show(300);
+
+        Interaction.toggleVisibility(currentUser);
     }
 
     // play animation
-    $(`#user_${user.id}`).animateCss(interaction.animation);
+    $(currentUser.classid).animateCss(interaction.animation);
 
     // update text
-    setTimeout(() => {
-        $("h1", `#user_${user.id}`).fadeOut(200, function() {
-            $(this).text(interaction.text).fadeIn(200);
-        })
-    }, 200);
+    $("h1", currentUser.classid).fadeOut(200, function() {
+        $(this).text(interaction.text).fadeIn(200);
+    });
 
     //TODO: If the interaction is popping out someone
 
-    // add cascading effect
-    for(let i = 1; i <= 4; i++) {
-        if(i == user.id) {
-            $(`#user_${i}`).animate({
-                marginTop: "0",
-            }, 300)
-        } else {
-            $(`#user_${i}`).animate({
-                marginTop: "+=50",
-            }, 300)
+    // add cascading effect to all other users
+    Interaction.getCharacters().forEach((character) => {
+        if(character.IsVisible) {
+            $(character.classid).animate({
+                marginTop: (character.id == currentUser.id) ? "0" : "+=50",
+            }, 300);
         }
-    }
+    });
 
     // Timer to set the next trigger
     setTimeout(() => {

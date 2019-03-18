@@ -3,10 +3,12 @@ var Interaction = (function(){
 
     // define the users here, they should have an ID, Name and an default image
     //
-    let dany = {id: 1, name:"dany", img:"res/avatars/dany.jpg" };
-    let dofu = {id: 2, name:"dofu", img:"res/avatars/dofu.jpg" };
-    let duarte = {id: 3, name:"duarte", img:"res/avatars/duarte.jpg" };
-    let pedro = {id: 4, name:"pedro", img:"res/avatars/pedro.jpg" };
+    let dany = {id: 1, classid : "#user_1", name:"dany", isVisible:"true", src: "res\\avatars\\dany.jpg" };
+    let dofu = {id: 2, classid : "#user_2", name:"dofu", isVisible:"false", src: "res\\avatars\\dofu.jpg" };
+    let duarte = {id: 3, classid : "#user_3", name:"duarte", isVisible:"false", src: "res/avatars/duarte.jpg" };
+    let pedro = {id: 4, classid : "#user_4", name:"pedro", isVisible:"false", src: "res/avatars/pedro.jpg" };
+
+    let users = [dany, dofu, duarte, pedro];
 
     // this array defined the interactions in the game.
     // It is sorted meaning the interactions will roll from top to bottom
@@ -16,7 +18,7 @@ var Interaction = (function(){
         {user: dofu, text:"test3", animation:"bounceInRight", timer: 2000, special:null},
         {user: dany, text:"test4", animation:"bounce", timer: 1000, special:null},
         {user: dofu, text:"test5", animation:"bounce", timer: 2000, special:null},
-        {user: duarte, text:"test6", animation:"bounceInDown", timer: 2000, special:null},
+        {user: duarte, text:"test6", animation:"bounceInTop", timer: 2000, special:null},
         {user: dofu, text:"test7", animation:"bounce", timer: 2000, special:null},
         {user: pedro, text:"test8", animation:"bounceInRight", timer: 2000, special:null},
         {user: dany, text:"test9", animation:"bounce", timer: 2000, special:null},
@@ -52,8 +54,18 @@ var Interaction = (function(){
         return interact;
     }
 
+    var getCharacters = function() {
+        return users;
+    }
+
+    var toggleVisibility = (user) => {
+        user.IsVisible = !user.IsVisible;
+    }
+
     return {
-        getInteraction: getInteraction
+        getInteraction: getInteraction,
+        getCharacters : getCharacters,
+        toggleVisibility : toggleVisibility
     };
 
 })();
