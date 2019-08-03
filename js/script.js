@@ -8,9 +8,6 @@ $(document).ready(() => {
     $(".avatar").on("click", playNextInteraction);
 })
 
-/** 
- * Main Game Function
- */
 function playNextInteraction() {
 
     $(".avatar").off("click");
@@ -25,11 +22,11 @@ function playNextInteraction() {
 
     // If the interaction is popping someone new
     if(!$(currentUser.classid).is(":visible")) {
-        $(`${currentUser.classid}.avatar`).attr("src", currentUser.src); 
+        $("img", currentUser.classid).attr("src", currentUser.src); 
         $(currentUser.classid).addClass(currentUser.name);
         $(currentUser.classid).show(300);
 
-        Interaction.toggleVisibility(currentUser);
+        currentUser.isVisible = true;
     }
 
     // play animation
@@ -44,7 +41,7 @@ function playNextInteraction() {
 
     // add cascading effect to all other users
     Interaction.getCharacters().forEach((character) => {
-        if(character.IsVisible) {
+        if(character.isVisible) {
             $(character.classid).animate({
                 marginTop: (character.id == currentUser.id) ? "0" : "+=50",
             }, 300);

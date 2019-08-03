@@ -1,0 +1,15 @@
+.user3 {
+    flex-grow:0;
+    width: 25%;
+}
+
+.user3 h1{ 
+    padding-top: 2%;
+    font-family: 'Indie Flower', cursive;
+    font-size: 2em;
+    color: white;
+    text-shadow: 2px 2px 0px #9b59b6;
+
+    text-align: center;
+    white-space: nowrap;
+}

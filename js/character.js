@@ -4,5 +4,4 @@ var character = (function(){
         initialize: initialize,
         update: update
     };
-
 })
